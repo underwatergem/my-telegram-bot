@@ -12,8 +12,8 @@ CMD*/
 
 let d =Bot.getProperty("gnoti")
 let s= Bot.getProperty("cnoti")
-var d= "Yes"
-var s ="Yes"
+d = "Yes"
+s = "Yes"
 if(params=="g"){
 if(d=="Yes"&&s=="yes"){
 Bot.editInlineKeyboard([[{title:"✅ Gaining new refferral",command:"/gref"}],

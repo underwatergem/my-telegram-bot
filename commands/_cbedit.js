@@ -10,7 +10,7 @@
   group: 
 CMD*/
 
-let f =(user.getProperty("upbtc")
+let f = User.getProperty("upbtc");
 
 if(params=="x"){
 var b =[

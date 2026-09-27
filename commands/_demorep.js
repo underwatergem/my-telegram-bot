@@ -26,7 +26,7 @@ var replace = function(str, object, regexp) { //if property not found string is 
         return (object[name] != null) ? object[name] : match;
     });
 }
-var formatted = replace(content, Lang,);
+var formatted = replace(content, Lang);
 if(params){
 var contentp=params
 }
@@ -36,8 +36,8 @@ var contenth = content
             if (index === 0) 
                 return str;
 
-            var whitespace = str.indexOf(' '),
-                var key = str.substring(0, whitespace)
+            var whitespace = str.indexOf(' ');
+            var key = str.substring(0, whitespace);
 
             return Lang[key] + str.substring(whitespace);
         })

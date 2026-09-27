@@ -40,8 +40,8 @@ var content = content
             if (index === 0) 
                 return str;
 
-            var whitespace = str.indexOf(' '),
-            var key = str.substring(0, whitespace)
+            var whitespace = str.indexOf(' ');
+            var key = str.substring(0, whitespace);
 
             return Lang[key] + str.substring(whitespace);
         })

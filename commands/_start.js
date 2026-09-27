@@ -29,7 +29,7 @@ var u_name=user.username
 let bal = Libs.ResourcesLib.userRes("balance");
 let zero=Bot.getProperty("zero")
 let cur=Bot.getProperty("cur")
-let x =User.setProperty("hi",bal.value().toFixed(8),"String")
+let x =User.setProperty("hi",bal.value().toFixed(8),"string")
 let hi =User.getProperty("hi")
 var time110 = new Date();
 let daily_amount=Bot.getProperty("daily_amount1")
@@ -50,25 +50,15 @@ Bot.setProperty("gnoti"+user.telegramid,"yes","string")
 Bot.setProperty("cnoti"+user.telegramid,"yes","string")
 Bot.setProperty("anoti"+user.telegramid,"yes","string")
 Bot.setProperty("enoti"+user.telegramid,"yes","string")
- Bot.setProperty("upinfo"+user.telegramid,user.first_name," string")
+ Bot.setProperty("upinfo"+user.telegramid,user.first_name,"string")
 Bot.setProperty("chat_created"+user.telegramid,time110,"string")
 var tgID = user.telegramid
-var badUsers = Bot.getProperty("bot_total_users", { list: {} });
- badUsers.list[tgID] = user.telegramid
-Bot.setProperty("bot_total_users", badUsers, "json");
-Bot.setProperty("banned_users_list",[],"json")
-var topm1 = request.from
-var badUsers2 = Bot.getProperty("bot_user_info", { list: {} });
-badUsers2.list[user.telegramid] =topm1
-Bot.setProperty("bot_user_info", badUsers2, "json");
 var v67=request.from
 Bot.setProperty("tgid_info"+user.telegramid,v67,"json")
 let adm=Bot.getProperty("admin01")
 if(adm){
 Api.sendMessage({chat_id:adm,text:"S.From --> "+'<a href="tg://user?id='+user.telegramid+'">'+user.first_name+'</a>'+"\n🆔 --> <code>"+user.telegramid+"</code>",parse_mode:"html"})
 }
-let h67=Bot.getProperty("bot_users")
-var from108=request.from
 let position_in=total_count.value()
 var from9033={
 first_name:user.first_name,
@@ -77,14 +67,7 @@ username:user.username,
 id:user.telegramid,
 position:position_in
 }
-if(!h67){
-var pujs=[ ]
-pujs.push(from9033)
-Bot.setProperty("bot_users",pujs,"json")
-}else{
-h67.push(from9033)
-Bot.setProperty("bot_users",h67,"json")
-}
+User.setProperty("user_profile_info", from9033, "json")
 if(params&&params!=user.telegramid){
 let u=params
 User.setProperty("Reffer",u,"string")
@@ -96,7 +79,7 @@ Bot.setProperty("rid"+user.telegramid,u,"string")
 Bot.setProperty("hshxh",u,"string")
 let up =Bot.getProperty("upinfo"+u)
 User.setProperty("up",up,"string")
-let res = (Libs.ResourcesLib.userRes("ref"),u)
+let res = Libs.ResourcesLib.anotherUserRes("ref", u);
 let refUserBonus = Libs.ResourcesLib.anotherUserRes("ref", u);
   refUserBonus.add(1);
 let d =User.getProperty("Reffer")
@@ -119,7 +102,7 @@ Api.sendMessage({chat_id:rf3,text:"➕ <b>New Refferral :</b> "+user.first_name+
 let refUserBonus3 = Libs.ResourcesLib.anotherUserRes("ref3", rf3);
   refUserBonus3.add(1);
 }}
-Bot.setProperty("chat_created"+user.tegramid,time110,"string")
+Bot.setProperty("chat_created"+user.telegramid,time110,"string")
 User.setProperty('used',true,'boolean');
 }
 let gomoj=Bot.getProperty("chat_created"+user.telegramid)
@@ -139,7 +122,7 @@ position:user_position,
 id:user.telegramid
 }
 }
-Bot.setProperty("user_info"+user.telegramid,hokomat,'JSON')
+Bot.setProperty("user_info"+user.telegramid,hokomat,'json')
 
 if(params){
 let spl=params.split('_')
